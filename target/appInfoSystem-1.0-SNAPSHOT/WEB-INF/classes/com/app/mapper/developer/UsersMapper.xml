@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--必须指定当前映射的文件名-->
+<mapper namespace="com.app.dao.UsersDao">
+
+    <select id="loginUsers" resultType="Users" parameterType="String">
+    select * from  dev_user where devCode=#{devCode};
+  </select>
+    <select id="statusList" resultType="DataDictionary">
+        select * from data_dictionary where typeName = "APP状态";
+    </select>
+    <select id="flatFormList" resultType="DataDictionary">
+        select * from data_dictionary where typeName = "所属平台";
+    </select>
+
+    <select id="categoryLevel1List" resultType="AppCategory">
+         select * from app_category where categoryCode like "All%";
+    </select>
+
+</mapper>
